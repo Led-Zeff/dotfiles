@@ -10,7 +10,7 @@ RowLayout {
     signal toggle
 
     Layout.fillWidth: true
-    Layout.leftMargin: 0
+    Layout.leftMargin: 8
     Layout.rightMargin: 14
 
     MenuLabel {

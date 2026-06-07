@@ -1,3 +1,5 @@
+pragma ComponentBehavior: Bound
+
 import QtQuick
 import QtQuick.Layouts
 import Quickshell
@@ -8,8 +10,8 @@ import qs.components.shared
 Scope {
     id: root
     property bool showOverlay: false
-    property double volume: Pipewire.defaultAudioSink?.audio.volume ?? 0
-    property bool muted: Pipewire.defaultAudioSink?.audio.muted ?? true
+    readonly property double volume: Pipewire.defaultAudioSink?.audio.volume ?? 0
+    readonly property bool muted: Pipewire.defaultAudioSink?.audio.muted ?? true
 
     PwObjectTracker {
         objects: [Pipewire.defaultAudioSink]

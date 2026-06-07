@@ -1,37 +1,42 @@
+import QtQuick.Layouts
 import Quickshell
 import qs.components.widgets
 import qs.components.theme
 
 Scope {
-  Variants {
-    model: Quickshell.screens
+    Variants {
+        model: Quickshell.screens
 
-    PanelWindow {
-      required property var modelData
-      screen: modelData
+        PanelWindow {
+            required property var modelData
+            screen: modelData
 
-      anchors {
-        top: true
-        right: true
-        left: true
-      }
-      color: 'transparent'
-      implicitHeight: clock.implicitHeight
+            anchors {
+                top: true
+                right: true
+                left: true
+            }
+            color: 'transparent'
+            implicitHeight: clock.implicitHeight
 
-      margins {
-        top: Spaces.marginTop
-        left: Spaces.marginSides
-        right: Spaces.marginSides
-      }
+            margins {
+                top: Spaces.marginTop
+                left: Spaces.marginSides
+                right: Spaces.marginSides
+            }
 
-      ClockWidget {
-        id: clock
-        anchors.centerIn: parent
-      }
+            ClockWidget {
+                id: clock
+                anchors.centerIn: parent
+            }
 
-      BluetoothWidget {
-        anchors.right: parent.right
-      }
+            RowLayout {
+                anchors.right: parent.right
+
+                BluetoothWidget {}
+
+                WifiWidget {}
+            }
+        }
     }
-  }
 }
