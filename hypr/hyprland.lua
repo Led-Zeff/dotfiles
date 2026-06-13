@@ -16,10 +16,10 @@
 
 -- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 hl.monitor({
-    output   = "",
-    mode     = "preferred",
-    position = "auto",
-    scale    = "auto",
+    output   = "DP-3",
+    mode     = "2560x1440@143.97",
+    position = "0x0",
+    scale    = 1,
 })
 
 

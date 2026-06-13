@@ -8,11 +8,9 @@ import qs.components.theme
 import qs.components.system
 
 Item {
-    implicitWidth: bluetoothButton.width
-    implicitHeight: bluetoothButton.height
-
     IconButton {
         id: bluetoothButton
+        anchors.fill: parent
         icon: "bluetooth"
         enabled: BluetoothConfig.enabled
 

@@ -9,8 +9,6 @@ import qs.components.theme
 
 Item {
     id: root
-    implicitWidth: wifiButton.width
-    implicitHeight: wifiButton.height
 
     readonly property WifiDevice wifiDevice: {
         for (const device of Networking.devices.values) {
@@ -32,7 +30,7 @@ Item {
 
     function iconForNetwork(network: WifiNetwork): string {
         if (!network) {
-            return "wifi.sgv";
+            return "wifi.svg";
         }
 
         return "wifi_" + (Math.ceil(root.currentNetwork.signalStrength * 5)) + ".svg";
@@ -40,6 +38,7 @@ Item {
 
     IconButton {
         id: wifiButton
+        anchors.fill: parent
         icon: root.iconForNetwork(root.currentNetwork)
         enabled: Networking.wifiEnabled
 

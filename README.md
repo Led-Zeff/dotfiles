@@ -9,4 +9,7 @@ Default config file barely customized.
 Basic shell with:
   - Time widget
   - Bluetooth widget
+  - Wifi widget
+  - Audio widget
   - Audio overlay
+

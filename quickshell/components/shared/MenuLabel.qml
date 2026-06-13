@@ -32,5 +32,6 @@ RowLayout {
         color: Theme.color
         font.pixelSize: 14
         Layout.fillWidth: true
+        wrapMode: Text.Wrap
     }
 }

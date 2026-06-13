@@ -1,7 +1,8 @@
+import QtQuick
 import QtQuick.Layouts
 import Quickshell
-import qs.components.widgets
 import qs.components.theme
+import qs.components.widgets
 
 Scope {
     Variants {
@@ -30,12 +31,44 @@ Scope {
                 anchors.centerIn: parent
             }
 
-            RowLayout {
+            Item {
                 anchors.right: parent.right
+                implicitHeight: parent.height
+                implicitWidth: widgetsRow.implicitWidth
 
-                BluetoothWidget {}
+                Rectangle {
+                    id: background
+                    anchors.fill: parent
+                    radius: Theme.radius
+                    color: Theme.bgColor
+                    border {
+                        color: Theme.borderColor
+                        width: Theme.borderWidth
+                    }
+                }
 
-                WifiWidget {}
+                RowLayout {
+                    id: widgetsRow
+                    anchors.fill: parent
+                    spacing: 0
+
+                    AudioWidget {
+                        Layout.preferredHeight: parent.height
+                        Layout.preferredWidth: parent.height + 4
+                        Layout.leftMargin: 4
+                    }
+
+                    BluetoothWidget {
+                        Layout.preferredHeight: parent.height
+                        Layout.preferredWidth: parent.height
+                    }
+
+                    WifiWidget {
+                        Layout.preferredHeight: parent.height
+                        Layout.preferredWidth: parent.height
+                        Layout.rightMargin: 4
+                    }
+                }
             }
         }
     }

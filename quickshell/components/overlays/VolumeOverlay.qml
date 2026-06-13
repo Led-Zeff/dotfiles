@@ -44,7 +44,7 @@ Scope {
             anchors.right: true
             exclusiveZone: 0
 
-            implicitWidth: 30
+            implicitWidth: 35
             implicitHeight: 400
             color: "transparent"
 
@@ -53,29 +53,16 @@ Scope {
 
             Rectangle {
                 anchors.fill: parent
+                anchors.rightMargin: 5
                 color: Theme.bgColor
-                topLeftRadius: Theme.radius
-                bottomLeftRadius: Theme.radius
+                radius: Theme.radius
 
                 ColumnLayout {
                     spacing: 5
                     anchors {
                         fill: parent
-                        topMargin: 10
-                        bottomMargin: 15
-                    }
-
-                    Rectangle {
-                        Layout.fillWidth: true
-                        implicitHeight: parent.width
-                        color: "transparent"
-
-                        Text {
-                            anchors.centerIn: parent
-                            color: Theme.color
-                            text: root.muted ? 0 : Math.ceil(root.volume * 100)
-                            font.pixelSize: 13
-                        }
+                        topMargin: 12
+                        bottomMargin: 12
                     }
 
                     Rectangle {
@@ -92,12 +79,28 @@ Scope {
                                 bottom: parent.bottom
                             }
 
-                            implicitHeight: parent.height * (root.muted ? 0 : root.volume)
+                            implicitHeight: (parent.height - 15) * (root.muted ? 0 : root.volume) + 15
                             radius: parent.radius
                             color: Theme.inputColor
 
                             Behavior on implicitHeight {
                                 NumberAnim {}
+                            }
+
+                            Rectangle {
+                                anchors.horizontalCenter: parent.horizontalCenter
+                                implicitWidth: 24
+                                implicitHeight: volumeValue.implicitHeight
+                                radius: Theme.radius
+                                color: Theme.inputColorAccent
+
+                                Text {
+                                    id: volumeValue
+                                    anchors.centerIn: parent
+                                    color: Theme.color
+                                    text: root.muted ? 0 : Math.ceil(root.volume * 100)
+                                    font.pixelSize: 13
+                                }
                             }
                         }
                     }
