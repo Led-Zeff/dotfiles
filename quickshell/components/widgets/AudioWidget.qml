@@ -19,7 +19,8 @@ RowLayout {
         id: audioButton
         Layout.fillHeight: true
         Layout.preferredWidth: parent.height
-        icon: "volume_up.svg"
+        icon: root.muted ? "volume_off.svg" : "volume_up.svg"
+        iconColor: root.muted ? Theme.colorSec : Theme.color
 
         onClicked: {
             audioPopup.visible = !audioPopup.visible;
@@ -110,7 +111,7 @@ RowLayout {
 
             // ----- Devices ----------------------------------
             ColumnLayout {
-                spacing: 2
+                spacing: 5
 
                 MenuLabel {
                     label: "Devices"

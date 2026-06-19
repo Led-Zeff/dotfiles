@@ -104,7 +104,7 @@ Item {
 
             // ----- Networks ----------------------------------------
             ColumnLayout {
-                spacing: 2
+                spacing: 5
                 visible: Networking.wifiEnabled
 
                 MenuLabel {

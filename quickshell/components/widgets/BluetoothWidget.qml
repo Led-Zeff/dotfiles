@@ -88,7 +88,7 @@ Item {
 
             // -------------------- Paired devices --------------------
             ColumnLayout {
-                spacing: 2
+                spacing: 5
                 visible: BluetoothConfig.enabled
 
                 MenuLabel {
@@ -107,29 +107,16 @@ Item {
                         label: device.name || device.deviceName || device.address
                         checked: device.connected
                         onToggle: {
-                            console.log('address', device.address);
-                            console.log('connected', device.connected);
-                            console.log('paired', device.paired);
-                            console.log('status', BluetoothDeviceState.toString(device.status));
-
                             if (!device.paired) {
                                 device.pair();
                                 device.trusted = true;
                             }
 
-                            // if (device.connected) {
-                            //     device.disconnect();
-                            // } else {
-                            //     device.connect();
-                            // }
-
-                            // connect.running = true;
-                        }
-
-                        Process {
-                            id: connect
-                            command: ['bluetoothctl', 'pair', deviceMenu.device.address]
-                            running: false
+                            if (device.connected) {
+                                device.disconnect();
+                            } else {
+                                device.connect();
+                            }
                         }
                     }
                 }

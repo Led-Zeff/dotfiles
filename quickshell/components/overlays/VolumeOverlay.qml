@@ -62,14 +62,13 @@ Scope {
                     anchors {
                         fill: parent
                         topMargin: 12
-                        bottomMargin: 12
                     }
 
                     Rectangle {
                         Layout.fillHeight: true
                         Layout.alignment: Qt.AlignHCenter
-                        implicitWidth: 7
-                        radius: 3.5
+                        implicitWidth: 8
+                        radius: 3
                         color: Theme.disabledBgColor
 
                         Rectangle {
@@ -105,14 +104,22 @@ Scope {
                         }
                     }
 
-                    Rectangle {}
+                    Item {}
 
-                    AssetIcon {
+                    Rectangle {
                         Layout.alignment: Qt.AlignCenter
+                        Layout.fillWidth: true
+                        implicitHeight: 30
+                        bottomLeftRadius: Theme.radius
+                        bottomRightRadius: Theme.radius
+                        color: Theme.inputColorAccent
 
-                        icon: root.muted || root.volume === 0 ? "volume_off.svg" : "volume_up.svg"
-                        color: root.muted || root.volume === 0 ? Theme.inputColorMuted : Theme.inputColor
-                        size: 18
+                        AssetIcon {
+                            anchors.centerIn: parent
+                            icon: root.muted || root.volume === 0 ? "volume_off.svg" : "volume_up.svg"
+                            color: root.muted || root.volume === 0 ? Theme.colorSec : Theme.color
+                            size: 18
+                        }
                     }
                 }
             }
