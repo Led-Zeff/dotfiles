@@ -7,6 +7,7 @@ Singleton {
     readonly property string colorSec: '#cdcdcd'
     readonly property string disabled: '#878787'
     readonly property string bgColor: '#810aaab8'
+    readonly property string bgColorSec: '#c00e3351'
     readonly property string activeBgColor: '#5c258a79'
     readonly property string disabledBgColor: '#5c353535'
     readonly property string disabledBorderColor: '#7f6f6f6f'
